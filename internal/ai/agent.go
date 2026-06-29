@@ -542,6 +542,7 @@ func (a *Agent) SendMessageStream(ctx context.Context, userInput string, onChunk
 		}
 
 		// Store assistant response
+		// Store assistant response
 		if resp.Content != "" {
 			a.AddMessage("assistant", resp.Content)
 		}
@@ -550,6 +551,11 @@ func (a *Agent) SendMessageStream(ctx context.Context, userInput string, onChunk
 		for _, tc := range resp.ToolCalls {
 			if onTool != nil {
 				onTool(tc)
+			}
+			// Log tool call via TUI
+			if onChunk != nil {
+				argsStr := formatToolArgs(tc.Arguments)
+				onChunk("\n" + tui.RenderToolCall(tc.Name, argsStr) + "\n")
 			}
 			result := a.ExecuteTool(tc)
 			if onToolResult != nil {
