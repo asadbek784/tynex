@@ -1,0 +1,51 @@
+# Binaries
+tynex
+tynex.exe
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Go workspace file
+go.work
+go.work.sum
+
+# Environment files
+.env
+*.env
+
+# API keys and secrets
+*.key
+*.pem
+*.cert
+
+# Config files with secrets
+config.yaml
+config.yml
+
+# Tynex local config directory
+.tynex/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+vendor/
+
+# Logs
+*.log
